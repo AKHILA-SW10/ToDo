@@ -63,7 +63,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
-This section has moved here: [https://user-tasks-tracking-app.herokuapp.com](https://user-tasks-tracking-app.herokuapp.com)
+Deployed the app here : [https://user-tasks-tracking-app.herokuapp.com](https://user-tasks-tracking-app.herokuapp.com)
 
 ### `npm run build` fails to minify
 
