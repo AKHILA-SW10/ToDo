@@ -1,0 +1,15 @@
+.submit-button{
+    background-color: green;
+    text-align: center;
+    height:40px;
+    width:100px; 
+}
+.cancel-button{
+    background-color: red;
+    margin-left: 10px;
+    height:40px;
+    width:100px; 
+}
+.title{
+    margin-top: 50px;
+}
