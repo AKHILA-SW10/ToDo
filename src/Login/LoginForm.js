@@ -7,7 +7,7 @@ const LoginForm = (props) => {
 
     const nameHandler=(event)=>{
        setName(event.target.value);
-       props.getUser(name);
+       props.getUser(event.target.value);
     }
 
 

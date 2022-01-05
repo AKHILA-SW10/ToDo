@@ -48,7 +48,7 @@ const ToDo=(props)=>{
           <h1>{props.user}, Here is your To-Do List..!!</h1>
           <ToDoList items={todoItems} remove={removeTask}/>
           {isAddClicked?<TaskForm add={addTask} remove={removeTask} hide={addClicked}/>:<button className="add-button" id="Add" onClick={addClicked}>Add</button>}
-          {!isAddClicked ? <button className="suggest-button" onClick={suggestion}>Suggest</button>:<div/>};
+          {!isAddClicked ? <button className="suggest-button" onClick={suggestion}>Suggest</button>:<div/>}
       </div>
   )
 }
