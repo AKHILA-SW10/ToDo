@@ -14,8 +14,8 @@ const TaskForm = (props) => {
     const cancelClickHandler=(event)=>{ 
         props.hide();
     }
-
-
+    
+  
     return (
         <div>
             <input className="taskName" type="text" value={enteredTask} onChange={taskChangeHandler} placeholder="TaskName"></input>

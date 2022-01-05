@@ -2,7 +2,8 @@ import { useState } from "react";
 import TaskForm from "./TaskForm";
 import ToDoList from "./ToDoList";
 import './ToDo.css';
-const ToDo=()=>{
+import Axios from 'axios';
+const ToDo=(props)=>{
     
     const sample=[];
     const [isAddClicked,setAddClick]=useState(false);
@@ -35,11 +36,19 @@ const ToDo=()=>{
         setAddClick(!isAddClicked);
     }
 
+    const suggestion=()=>{
+        Axios.get("https://www.boredapi.com/api/activity?participants="+Math.ceil(Math.random()*4)).then((response)=>{
+            console.log(response.data.activity);
+            addTask(response.data.activity);
+        })
+    }
+
   return (
       <div>
-          <h1>{"Akhila, "} Here is your To-Do List..!!</h1>
+          <h1>{props.user}, Here is your To-Do List..!!</h1>
           <ToDoList items={todoItems} remove={removeTask}/>
           {isAddClicked?<TaskForm add={addTask} remove={removeTask} hide={addClicked}/>:<button className="add-button" id="Add" onClick={addClicked}>Add</button>}
+          {!isAddClicked ? <button className="suggest-button" onClick={suggestion}>Suggest</button>:<div/>};
       </div>
   )
 }

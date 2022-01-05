@@ -6,15 +6,19 @@ import ToDo from './ToDo/ToDo';
 
 const App = () => {
   const [isLoggedIn, setisLoggedIn] = useState(false);
-  
+  const [userName,setUserName]=useState('Dear Guest');
+
   const trigger=()=>{
     setisLoggedIn(!isLoggedIn);
+  }
+  const getUser=(user)=>{
+      setUserName(user);
   }
 
   return (
     <div className='App'>
       {!isLoggedIn?<img src="TaskOrganizer.png"/>:<div/>}
-      {!isLoggedIn ? <LoginForm trigger={trigger}/> : <ToDo/>}
+      {!isLoggedIn ? <LoginForm trigger={trigger} getUser={getUser}/> : <ToDo user={userName}/>}
     </div>
   );
 }
