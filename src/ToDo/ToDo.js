@@ -11,7 +11,7 @@ const ToDo=(props)=>{
     const [todoItems,setItems]=useState(sample);
 
     const addTask=(title)=>{
-        const newItem={id:key,task:title};
+        const newItem={id:key,task:title,isCompleted:false};
         setItems((todoItems)=>{
             return [...todoItems,newItem];
         });
@@ -31,7 +31,20 @@ const ToDo=(props)=>{
                 return [...tempItems];
         })
     }
-
+    const completedTask=(id)=>{
+        console.log("id is id",id);
+        const tempItems=[...todoItems];
+        for(var i=0;i<todoItems.length;i++){
+            if(id==tempItems[i].id){
+                const newItem={id:tempItems[i].id,task:tempItems[i].task,isCompleted:true};
+                tempItems.splice(i,1,newItem);
+                break;
+            }
+        }
+        setItems((todoItems)=>{
+            return [...tempItems];
+        })
+    }
     const addClicked=(event)=>{
         setAddClick(!isAddClicked);
     }
@@ -46,9 +59,14 @@ const ToDo=(props)=>{
   return (
       <div>
           <h1>{props.user}, Here is your To-Do List..!!</h1>
-          <ToDoList items={todoItems} remove={removeTask}/>
-          {isAddClicked?<TaskForm add={addTask} remove={removeTask} hide={addClicked}/>:<button className="add-button" id="Add" onClick={addClicked}>Add</button>}
-          {!isAddClicked ? <button className="suggest-button" onClick={suggestion}>Suggest</button>:<div/>}
+          <ToDoList items={todoItems} remove={removeTask} completed={completedTask}/>
+          {isAddClicked?
+             <TaskForm add={addTask} remove={removeTask} hide={addClicked}/>:
+             <div>
+             <button className="add-button" id="Add" onClick={addClicked}>Add</button>
+             <button className="suggest-button" onClick={suggestion}>Suggest</button>
+             </div>
+          }
       </div>
   )
 }

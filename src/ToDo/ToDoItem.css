@@ -24,7 +24,12 @@
     right:140px;
     /* top:100px;  */
 }
-
+.completed-button{
+    font-size: 20px;
+    position: absolute;
+    right:290px;
+    /* top:100px;  */
+}
 .no-msg{
     font-size: 25px;
     color: rgb(128, 34, 17);
