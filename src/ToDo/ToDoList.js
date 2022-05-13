@@ -9,11 +9,13 @@ const ToDoList=(props)=>{
     const completed=(event)=>{
         props.completed(event.target.id);
     }
+    props.items.map(todo=>(console.log(todo.id+" "+todo.task+" "+todo.isCompleted)))
+
     if(props.items.length==0){
         return <h3 className='no-msg'> No activities found ..!! </h3>;
    } else{
         return props.items.map(todo=>(
-            <div><ToDoItem id={todo.id} title={todo.task} remove={remove} completed={completed} /></div>
+                <div><ToDoItem id={todo.id} title={todo.task} remove={remove} isCompleted={todo.isCompleted} completed={completed} /></div>
         ));
    }
 }

@@ -11,6 +11,7 @@ const ToDo=(props)=>{
     const [todoItems,setItems]=useState(sample);
 
     const addTask=(title)=>{
+        if(title.length==0) return;
         const newItem={id:key,task:title,isCompleted:false};
         setItems((todoItems)=>{
             return [...todoItems,newItem];
@@ -19,20 +20,22 @@ const ToDo=(props)=>{
     }
 
     const removeTask=(id)=>{
-        console.log("remove..!!!!",id);
+        console.log("remove..!!!!",id,todoItems);
         const tempItems=[...todoItems];
+        
         for(var i=0;i<todoItems.length;i++){
             if(id==tempItems[i].id){
                 tempItems.splice(i,1);
                 break;
             }
         }
+        console.log("after remove..!!!!",id,tempItems);
         setItems((todoItems)=>{
                 return [...tempItems];
         })
     }
     const completedTask=(id)=>{
-        console.log("id is id",id);
+        console.log("id is id",id,todoItems);
         const tempItems=[...todoItems];
         for(var i=0;i<todoItems.length;i++){
             if(id==tempItems[i].id){
@@ -41,6 +44,7 @@ const ToDo=(props)=>{
                 break;
             }
         }
+        console.log("after complete ",tempItems)
         setItems((todoItems)=>{
             return [...tempItems];
         })
