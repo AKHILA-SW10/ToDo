@@ -64,7 +64,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
-Deployed the app here : [https://user-tasks-tracking-app.herokuapp.com](https://user-tasks-tracking-app.herokuapp.com)
+Deployed the app here : [https://todo-jsa8.onrender.com/](https://todo-jsa8.onrender.com/)
 
 ### `npm run build` fails to minify
 
